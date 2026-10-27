@@ -67,4 +67,3 @@ it('cancels the editor without persisting changes and restores focus', async () 
 it('handles the native dialog cancel event', () => {
   render(<App />); fireEvent.click(screen.getByRole('button', { name: /new task/i })); fireEvent(screen.getByRole('dialog'), new Event('cancel', { bubbles: true })); expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 });
-
