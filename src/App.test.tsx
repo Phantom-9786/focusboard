@@ -22,6 +22,7 @@ it('creates a trimmed task, persists it and announces the result', async () => {
 });
 it('rejects blank task titles and keeps the editor open', async () => {
   const user = userEvent.setup(); render(<App />); await user.click(screen.getByRole('button', { name: /new task/i }));
+  expect(screen.getByLabelText(/Task title/)).toHaveFocus();
   await user.click(screen.getByRole('button', { name: /create task/i }));
   expect(screen.getByRole('alert')).toHaveTextContent('task title'); expect(screen.getByLabelText(/Task title/)).toHaveFocus();
   expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
@@ -45,7 +46,7 @@ it('supports completion, reopening, deletion and undo', async () => {
 });
 it('filters, searches and recovers from no results', async () => {
   const user = userEvent.setup(); render(<App />);
-  await user.click(screen.getByRole('button', { name: 'Done', exact: true }));
+  await user.click(screen.getByRole('button', { name: 'Done' }));
   expect(screen.getAllByRole('article')).toHaveLength(2);
   await user.type(screen.getByRole('textbox', { name: 'Search tasks' }), 'no-such-task');
   expect(screen.getByRole('heading', { name: 'A little breathing room.' })).toBeInTheDocument();
@@ -60,9 +61,10 @@ it('keeps working and warns when saving fails', async () => {
 });
 it('cancels the editor without persisting changes and restores focus', async () => {
   const user = userEvent.setup(); render(<App />); const trigger = screen.getByRole('button', { name: /new task/i }); await user.click(trigger);
-  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Cancel', exact: true }));
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Cancel' }));
   await waitFor(() => expect(trigger).toHaveFocus()); expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
 });
 it('handles the native dialog cancel event', () => {
   render(<App />); fireEvent.click(screen.getByRole('button', { name: /new task/i })); fireEvent(screen.getByRole('dialog'), new Event('cancel', { bubbles: true })); expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 });
+

@@ -8,7 +8,7 @@ function TaskEditor({ task, onSave, onClose }: { task: Task | null; onSave: (dra
   const titleRef = useRef<HTMLInputElement>(null);
   const [draft, setDraft] = useState<Draft>(task ? { ...task } : emptyDraft());
   const [error, setError] = useState('');
-  useEffect(() => { const element = dialog.current!; element.showModal(); return () => element.close(); }, []);
+  useEffect(() => { const element = dialog.current!; element.showModal(); titleRef.current?.focus(); return () => element.close(); }, []);
   function submit(event: FormEvent) {
     event.preventDefault(); const problem = validate(draft);
     if (problem) { setError(problem); titleRef.current?.focus(); return; }
