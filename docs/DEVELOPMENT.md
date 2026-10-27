@@ -26,4 +26,7 @@ The owner supplied the FlyRank React app assignment and asked to complete the ne
 
 ## Learner participation
 
-AI handled implementation and the corrections above. The owner must review and document their actual participation before describing these as personal manual improvements. No learner edits are invented in this record.
+AI handled implementation and the initial corrections above. The owner subsequently tested the app, confirmed the task interactions and metrics worked, and identified small text as a usability issue, especially task descriptions. They requested larger normal text. Codex implemented that direction in CSS and adapted mobile task-card wrapping. OWNER-REVIEW.md records the division of work; no manually typed learner code is claimed.
+
+After the owner-directed typography change, all 26 tests and the production build passed. A browser screenshot confirmed larger task descriptions, labels, and actions at the available desktop preview width. The owner's saved tasks were preserved; no new device-specific mobile test is claimed.
+

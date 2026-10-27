@@ -1,12 +1,15 @@
-# Personal review before submission
+# Owner review and directed improvement
 
-The assignment asks for manual improvements after reviewing AI output. The recorded corrections were made by Codex, so do not claim you personally wrote them.
+On 27 October 2026, the owner tested the application and reported that its interactions and task counts worked. They identified a usability issue: ordinary text, especially task descriptions, was too small and should be larger.
 
-A short meaningful review you can do:
+Codex implemented the owner's direction:
 
-1. Open the app, create one real practice task, edit it, complete/reopen it, and try a search with no results.
-2. Read compareTasks() in src/tasks.ts and explain why done tasks should appear after unfinished tasks.
-3. Pick one behavior or usability issue you notice and describe the exact change you want. You can implement it yourself or direct Codex to apply it, accurately documenting your role as reviewer.
-4. Record your actual observation, change, and check in this file. Commit the change after tests/build pass.
+- Descriptions increased from 10px (12px on wide screens) to 14px with 1.65 line height.
+- Task titles increased to 16px; dates, priorities, status badges, and edit/delete controls to 12px.
+- Supporting text, filters, search, and metric labels increased to 13px; primary actions and body copy to 14px.
+- Form inputs increased to 16px and labels to 14px.
+- Mobile task cards wrap status and actions below descriptions to give the larger text enough room.
 
-For example, if you genuinely find priority filtering unclear, review its label and specify clearer wording. This is a suggested review activity, not a claim that you already performed it. Personalizing text alone is smaller evidence than reviewing an actual behavior.
+The owner supplied the review finding and improvement direction; Codex performed the CSS edits. This is owner-directed review, not a claim that the owner manually typed code. The owner has not yet confirmed the revised appearance.
+
+The existing behavior tests and production build were rerun after the change.

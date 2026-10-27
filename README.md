@@ -53,7 +53,9 @@ Codex converted the supplied brief into a bounded frontend, reused a minimal Rea
 3. **Readability improved:** browser review found faint supporting text. Secondary text, priorities, and status text received darker CSS colors. This is a visual review correction, not a claim of a certified contrast/accessibility audit.
 4. **Verification caught a test typing mistake:** Vitest initially passed, but TypeScript rejected an unsupported exact option in two getByRole queries. Removing that option fixed the build; tests and build were rerun successfully.
 
-These review corrections were performed by Codex. They are not represented as manual edits by the repository owner. The owner should personally review the app and make/document a meaningful improvement before claiming that part of the assignment as their own. The [owner review guide](docs/OWNER-REVIEW.md) explains a small concrete next step.
+5. **Owner-directed readability improvement:** after testing the app, the owner reported that normal text, especially task descriptions, was too small. Codex implemented their feedback: 14px descriptions, 16px titles, larger supporting text and controls, and a mobile layout that wraps task actions below descriptions.
+
+The owner personally tested the app and identified the readability issue; Codex implemented the requested edits. This is owner-directed review, not a claim that the owner manually typed code. The [owner review record](docs/OWNER-REVIEW.md) documents the feedback and resulting changes.
 
 ## Verification
 

@@ -8,3 +8,17 @@
 .subtitle,.stat div>span,.stat small,.progress-stat small,.feedback-line p,.task-body>p,.task-meta,.page-footer,.tabs button,.sort-label{color:#657269}.text-button{color:#526c5d}.is-done h3{color:#637365}.high{color:#9b5b3d}.medium{color:#82702e}.low{color:#4f785b}.status-0{color:#626b4f}.status-1{color:#705593}.status-2{color:#4f7145}.search-filter select{color:#52654f}.sidebar-bottom small,.sidebar-card p{color:#b4c5c8}dialog label span{color:#687660}
 @media(prefers-reduced-motion:reduce){button{transition:none}}
 
+/* Owner review: readable everyday text at every breakpoint. */
+.task-body h3{font-size:16px;line-height:1.45}
+.task-body>p{font-size:14px;line-height:1.65}
+.task-meta,.status-badge,.text-button{font-size:12px}
+.subtitle,.sidebar-card p,.sidebar nav button,.primary,.secondary{font-size:14px}
+.stat div>span,.stat small,.progress-stat>div,.progress-stat small,.feedback-line p,.sort-label,.sort-label select,.tabs button,.search-box input,.search-filter select,.topbar,.page-footer{font-size:13px}
+.sidebar-bottom strong,.sidebar-bottom small,.local-badge{font-size:12px}
+.workspace-label,.eyebrow{font-size:11px}
+.search-box{min-height:38px}.search-box input{width:165px;min-width:0}
+.search-filter select{max-width:155px;min-height:38px}.toolbar{flex-wrap:wrap}
+.task-card{padding-top:23px;padding-bottom:23px}.task-right{gap:20px}.task-actions{gap:14px}
+dialog input,dialog textarea,dialog select{font-size:16px}dialog label{font-size:14px}dialog label span,.modal-heading .eyebrow{font-size:12px}
+@media(max-width:1150px){.search-box input{width:100%}.sidebar-bottom strong,.sidebar-bottom small{font-size:11px}}
+@media(max-width:720px){.task-card{flex-wrap:wrap;padding:18px 14px}.task-body{flex-basis:calc(100% - 34px)}.task-right{width:100%;padding-left:30px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}.tabs button{padding:9px 8px}.stat div>span{font-size:12px}.stat>div{min-height:64px}.topbar{gap:12px;flex-wrap:wrap;height:auto;min-height:65px;padding-top:10px;padding-bottom:10px}.sidebar nav button{font-size:12px}.feedback-line{align-items:flex-start}}
