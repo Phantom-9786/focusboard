@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { filterTasks, loadTasks, localDay, priorities, statuses, STORAGE_KEY, validate, type Draft, type Task } from './tasks';
+import { compareTasks, filterTasks, loadTasks, localDay, priorities, statuses, STORAGE_KEY, validate, type Draft, type Task } from './tasks';
 import './styles.css';
 
 const emptyDraft = (): Draft => ({ title: '', description: '', status: 'To do', priority: 'Medium', due: '' });
@@ -44,7 +44,7 @@ export default function App() {
   const returnFocus = useRef<HTMLElement | null>(null);
   const complete = tasks.filter(task => task.status === 'Done').length;
   const progress = tasks.length ? Math.round(complete / tasks.length * 100) : 0;
-  const visible = filterTasks(tasks, query, status, priority).sort((a, b) => sort === 'Priority' ? priorities.indexOf(a.priority) - priorities.indexOf(b.priority) : (a.due || '9999').localeCompare(b.due || '9999'));
+  const visible = filterTasks(tasks, query, status, priority).sort((a, b) => compareTasks(a, b, sort));
   function commit(next: Task[], message: string) {
     setTasks(next);
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); setWarning(''); setNotice(message); }

@@ -50,3 +50,12 @@ export function filterTasks(tasks: Task[], query: string, status: string, priori
   const search = query.trim().toLowerCase();
   return tasks.filter(task => (status === 'All tasks' || task.status === status) && (priority === 'All priorities' || task.priority === priority) && `${task.title} ${task.description}`.toLowerCase().includes(search));
 }
+
+export function compareTasks(a: Task, b: Task, sort: string): number {
+  // Keep unfinished work visible before completed tasks, regardless of sort mode.
+  const completedOrder = Number(a.status === 'Done') - Number(b.status === 'Done');
+  if (completedOrder) return completedOrder;
+  return sort === 'Priority'
+    ? priorities.indexOf(a.priority) - priorities.indexOf(b.priority)
+    : (a.due || '9999').localeCompare(b.due || '9999');
+}
